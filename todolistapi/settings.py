@@ -29,6 +29,7 @@ DEBUG = config('DEBUG')
 ALLOWED_HOSTS = []
 
 
+AUTH_USER_MODEL = 'authentication.User'
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,7 +42,18 @@ INSTALLED_APPS = [
     'rest_framework',
     'todos',
     'authentication',
+    'django_filters',
+    
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'authentication.jwt.JWTAuthentication',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
