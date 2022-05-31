@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "whitenoise.runserver_nostatic",
     'rest_framework',
     'drf_yasg',
     'todos',
@@ -59,6 +60,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -88,6 +90,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'todolistapi.wsgi.application'
+
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Database
