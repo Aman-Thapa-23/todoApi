@@ -1,5 +1,3 @@
-from statistics import mode
-from turtle import update
 from django.db import models
 
 class TrackingModel(models.Model):

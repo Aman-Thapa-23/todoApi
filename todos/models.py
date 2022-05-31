@@ -1,4 +1,3 @@
-from pyexpat import model
 from django.db import models
 from helpers.models import TrackingModel
 from authentication.models import User
